@@ -34,26 +34,30 @@ Sebelum menjalankan aplikasi ini di komputer Anda, pastikan Anda memiliki:
 
 Ikuti langkah-langkah ini untuk menjalankan project di komputer lokal:
 
-### 1. Clone atau Download Source Code
-Jika Anda memiliki Git:
-```bash
-git clone https://github.com/username/commentary-scraper.git
-cd commentary-scraper
-```
-Atau ekstrak file ZIP source code.
+### Langkah 1: Siapkan Folder Project
+1.  **Ekstrak (Unzip)** file `.zip` source code yang Anda terima.
+2.  Masuk ke dalam folder hasil ekstraksi tersebut.
 
-### 2. Install Dependensi
-Buka terminal/cmd di folder project, lalu jalankan:
+### Langkah 2: Install Dependensi (Wajib)
+Jantung aplikasi ini ada di library pendukungnya. Kita perlu menginstalnya terlebih dahulu.
+1.  Buka terminal (Command Prompt / PowerShell) di dalam folder project tadi.
+    *   *Tips: Di Windows, buka folder project, klik bar alamat di atas, ketik `cmd`, lalu Enter.*
+2.  Ketik perintah berikut dan tekan Enter:
 ```bash
 npm install
 ```
+*(Tunggu hingga proses selesai dan muncul folder baru `node_modules`)*
 
-### 3. Jalankan Mode Development
-Untuk menjalakan server lokal:
+### Langkah 3: Jalankan Aplikasi
+Sekarang kita nyalakan server lokalnya:
 ```bash
 npm run dev
 ```
-Buka browser dan kunjungi: **`http://localhost:3000`**
+Jika berhasil, akan muncul tulisan `Ready in [...] localhost:3000`.
+
+### Langkah 4: Buka di Browser
+Buka browser (Chrome/Edge/Firefox) dan kunjungi alamat:
+**`http://localhost:3000`**
 
 ### 4. Build untuk Production (Opsional)
 Jika ingin melihat versi performa maksimal (seperti website asli):

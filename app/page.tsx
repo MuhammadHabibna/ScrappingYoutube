@@ -12,7 +12,21 @@ import { Slider } from "@/components/ui/slider";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Progress } from "@/components/ui/progress";
-import { Download, Youtube, Loader2, MessageSquare, ThumbsUp, AlertCircle, AlertTriangle } from "lucide-react";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogFooter,
+} from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import { Download, Youtube, Loader2, MessageSquare, ThumbsUp, AlertCircle, AlertTriangle, Eye, EyeOff } from "lucide-react";
+
+// ... (existing code)
+
+
+
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
@@ -20,6 +34,15 @@ export default function Home() {
     const [url, setUrl] = useState("");
     const [limit, setLimit] = useState(100);
     const [progress, setProgress] = useState(0);
+
+    // PIN Verification State
+    // PIN Verification State
+    const [isPinDialogOpen, setIsPinDialogOpen] = useState(false);
+    const [pinInput, setPinInput] = useState("");
+    const [showPin, setShowPin] = useState(false); // Toggle visibility
+    const [pinError, setPinError] = useState("");
+    const [isUnlocked, setIsUnlocked] = useState(false);
+    const ACCESS_PIN = "050597"; // Hardcoded PIN, updated as requested
 
     const { mutate: scrape, isPending, error, data, reset } = useScraper();
 
@@ -46,7 +69,30 @@ export default function Home() {
     }, [isPending]);
 
     const handleScrape = () => {
-        scrape({ youtubeUrl: url, limit });
+        if (isUnlocked) {
+            scrape({ youtubeUrl: url, limit });
+        } else {
+            setIsPinDialogOpen(true);
+        }
+    };
+
+    const handlePinSubmit = () => {
+        // Simple sanitization: trim whitespace.
+        // SQL Injection is NOT possible here because:
+        // 1. This is running on the client-side (browser).
+        // 2. We are not using a database (SQL).
+        // 3. We use strict equality check (===) which prevents injection logic.
+        const cleanInput = pinInput.trim();
+
+        if (cleanInput === ACCESS_PIN) {
+            setIsUnlocked(true);
+            setIsPinDialogOpen(false);
+            setPinError("");
+            scrape({ youtubeUrl: url, limit });
+        } else {
+            setPinError("Incorrect PIN Code.");
+            setPinInput(""); // Clear input on error
+        }
     };
 
     const handleDownload = () => {
@@ -263,6 +309,61 @@ export default function Home() {
                         </motion.div>
                     )}
                 </AnimatePresence>
+
+                {/* PIN Verification Dialog */}
+                <Dialog open={isPinDialogOpen} onOpenChange={setIsPinDialogOpen}>
+                    <DialogContent className="sm:max-w-md">
+                        <DialogHeader>
+                            <DialogTitle>Access Verification</DialogTitle>
+                            <DialogDescription>
+                                To prevent abuse, this tool is protected. Please enter the Access PIN.
+                            </DialogDescription>
+                        </DialogHeader>
+                        <div className="grid gap-4 py-4">
+                            <div className="space-y-2">
+                                <Label htmlFor="pin">Access PIN</Label>
+                                <div className="relative">
+                                    <Input
+                                        id="pin"
+                                        type={showPin ? "text" : "password"}
+                                        placeholder="Enter PIN code"
+                                        value={pinInput}
+                                        onChange={(e) => setPinInput(e.target.value)}
+                                        onKeyDown={(e) => e.key === "Enter" && handlePinSubmit()}
+                                        className="pr-10" // Make room for the eye icon
+                                    />
+                                    <Button
+                                        type="button"
+                                        variant="ghost"
+                                        size="sm"
+                                        className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+                                        onClick={() => setShowPin(!showPin)}
+                                    >
+                                        {showPin ? (
+                                            <EyeOff className="h-4 w-4 text-slate-500" />
+                                        ) : (
+                                            <Eye className="h-4 w-4 text-slate-500" />
+                                        )}
+                                    </Button>
+                                </div>
+                                {pinError && <p className="text-red-500 text-xs">{pinError}</p>}
+                            </div>
+                        </div>
+                        <DialogFooter className="flex-col sm:justify-between items-start sm:items-center gap-2 sm:gap-0">
+                            <a
+                                href="#"
+                                className="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline bg-blue-50 dark:bg-blue-900/20 px-3 py-2 rounded-md transition-colors w-full text-center sm:w-auto"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                Hubungi admin untuk mendapatkan Akses Website
+                            </a>
+                            <Button type="submit" onClick={handlePinSubmit}>
+                                Verify & Start
+                            </Button>
+                        </DialogFooter>
+                    </DialogContent>
+                </Dialog>
 
             </main>
         </div>

@@ -7,3 +7,60 @@
 [00:02:42.097] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
 [00:02:59.403] Browser WARN    Image with src "https://i.ytimg.com/vi/PC3KLjRgRbM/hqdefault.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
 [00:07:08.952] Server  LOG      ✓ Compiled in 70ms
+[01:29:36.042] Server  LOG      ✓ Compiled in 147ms
+[01:29:36.311] Browser ERROR   uncaughtError: ReferenceError: Dialog is not defined
+[01:29:45.376] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[01:29:45.607] Server  LOG      ✓ Compiled in 99ms
+[01:29:45.737] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:31:23.186] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:31:46.955] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:33:19.863] Browser WARN    Image with src "https://i.ytimg.com/vi/Ss6ud71pmvQ/hqdefault.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[01:35:43.357] Server  LOG      ✓ Compiled in 57ms
+[01:35:43.722] Server  LOG      ✓ Compiled in 91ms
+[01:35:44.306] Browser ERROR   ./app/page.tsx:89:39
+Parsing ecmascript source code failed
+  87 |                             </div>
+  88 |                         </div>
+> 89 |                         <DialogFooter className="flex-col sm:justify-between items-start sm:items-center gap-2 sm:gap-0">
+     |                                       ^^^^^^^^^
+  90 |                              <a 
+  91 |                                 href="#" 
+  92 |                                 className="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline bg-blue-50 dark:bg-blue-900/20 px-3 py-2 rounded-md transition-colors w-full text-center sm:w-auto"
+
+Expected ';', '}' or <eof>
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:35:44.306] Browser ERROR   ./app/page.tsx:89:39
+Parsing ecmascript source code failed
+  87 |                             </div>
+  88 |                         </div>
+> 89 |                         <DialogFooter className="flex-col sm:justify-between items-start sm:items-center gap-2 sm:gap-0">
+     |                                       ^^^^^^^^^
+  90 |                              <a 
+  91 |                                 href="#" 
+  92 |                                 className="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline bg-blue-50 dark:bg-blue-900/20 px-3 py-2 rounded-md transition-colors w-full text-center sm:w-auto"
+
+Expected ';', '}' or <eof>
+
+Import traces:
+  Client Component Browser:
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:36:20.312] Browser ERROR   uncaughtError: ReferenceError: AnimatePresence is not defined
+[01:36:20.312] Browser ERROR   uncaughtError: ReferenceError: AnimatePresence is not defined
+[01:36:58.864] Server  LOG      ✓ Compiled in 190ms
+[01:36:58.975] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[01:36:59.103] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:36:59.182] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:39:06.661] Browser WARN    Image with src "https://i.ytimg.com/vi/Ss6ud71pmvQ/hqdefault.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
