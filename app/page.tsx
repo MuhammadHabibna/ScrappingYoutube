@@ -351,7 +351,7 @@ export default function Home() {
                         </div>
                         <DialogFooter className="flex-col sm:justify-between items-start sm:items-center gap-2 sm:gap-0">
                             <a
-                                href="#"
+                                href="http://lynk.id/habib.creations/6k6o88jn5j48"
                                 className="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline bg-blue-50 dark:bg-blue-900/20 px-3 py-2 rounded-md transition-colors w-full text-center sm:w-auto"
                                 target="_blank"
                                 rel="noreferrer"
