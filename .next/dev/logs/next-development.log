@@ -1,0 +1,9 @@
+[00:00:00.960] Server  LOG      ✓ Ready in 603ms
+[00:00:06.481] Server  LOG      ○ Compiling / ...
+[00:00:07.290] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:22.171] Server  LOG      ○ Compiling /api/scrape ...
+[00:00:31.494] Browser WARN    Image with src "https://i.ytimg.com/vi/PC3KLjRgRbM/hqdefault.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:01:26.719] Server  LOG      ✓ Compiled in 40ms
+[00:02:42.097] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:59.403] Browser WARN    Image with src "https://i.ytimg.com/vi/PC3KLjRgRbM/hqdefault.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:07:08.952] Server  LOG      ✓ Compiled in 70ms

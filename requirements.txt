@@ -1,0 +1,17 @@
+SYSTEM REQUIREMENTS
+
+To run this project, you need to have the following installed on your system:
+
+1. Node.js (Version 18.17.0 or higher)
+   - Download: https://nodejs.org/
+
+2. npm (Node Package Manager)
+   - usually installed automatically with Node.js
+
+3. Internet Connection
+   - Required for installing dependencies and contacting YouTube API.
+
+4. YouTube Data API Key
+   - Required for the application to function.
+   - You can get this for free from Google Cloud Console.
+   - See README.md or in-app settings for instructions.
