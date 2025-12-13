@@ -21,7 +21,7 @@ import {
     DialogFooter,
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
-import { Download, Youtube, Loader2, MessageSquare, ThumbsUp, AlertCircle, AlertTriangle, Eye, EyeOff } from "lucide-react";
+import { Download, Youtube, Loader2, MessageSquare, ThumbsUp, AlertCircle, AlertTriangle, Eye, EyeOff, Plus, Trash2 } from "lucide-react";
 
 // ... (existing code)
 
@@ -31,12 +31,23 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
     const { apiKey } = useSettingsStore();
-    const [url, setUrl] = useState("");
+
+    // Multi-video state
+    const [urls, setUrls] = useState<string[]>([""]);
     const [limit, setLimit] = useState(100);
     const [progress, setProgress] = useState(0);
+    const [isScrapingBatch, setIsScrapingBatch] = useState(false);
+    const [batchError, setBatchError] = useState<string | null>(null);
+
+    // Accumulated Data State
+    const [results, setResults] = useState<{
+        meta: any;
+        comments: any[];
+    } | null>(null);
+
 
     // PIN Verification State
-    // PIN Verification State
+    const ENABLE_PIN_PROTECTION = true; // TOGGLE: Set to false to disable PIN check
     const [isPinDialogOpen, setIsPinDialogOpen] = useState(false);
     const [pinInput, setPinInput] = useState("");
     const [showPin, setShowPin] = useState(false); // Toggle visibility
@@ -44,62 +55,136 @@ export default function Home() {
     const [isUnlocked, setIsUnlocked] = useState(false);
     const ACCESS_PIN = "050597"; // Hardcoded PIN, updated as requested
 
-    const { mutate: scrape, isPending, error, data, reset } = useScraper();
+    // Use mutateAsync for manual control
+    const { mutateAsync: scrape, isPending: isSinglePending } = useScraper();
+
+    // Determine global loading state
+    const isLoading = isScrapingBatch || isSinglePending;
 
     // Reset progress when not pending
     useEffect(() => {
-        if (!isPending) {
+        if (!isLoading) {
             setProgress(0);
         }
-    }, [isPending]);
+    }, [isLoading]);
 
-    // Simulate progress
-    useEffect(() => {
-        let timer: NodeJS.Timeout;
-        if (isPending) {
-            setProgress(10);
-            timer = setInterval(() => {
-                setProgress((prev) => {
-                    if (prev >= 90) return prev;
-                    return prev + Math.random() * 10;
-                });
-            }, 800);
-        }
-        return () => clearInterval(timer);
-    }, [isPending]);
 
-    const handleScrape = () => {
-        if (isUnlocked) {
-            scrape({ youtubeUrl: url, limit });
-        } else {
-            setIsPinDialogOpen(true);
+    const executeBatchScrape = async () => {
+        // Validation
+        const validUrls = urls.filter(u => u.trim() !== "");
+        if (validUrls.length === 0) return;
+
+        setIsScrapingBatch(true);
+        setBatchError(null);
+        setResults(null);
+        setProgress(5);
+
+        let accumulatedComments: any[] = [];
+        let accumulatedMeta: any = {
+            title: "Multi-Video Export",
+            channel: "Various",
+            thumbnail: "",
+            total_comments: 0
+        };
+
+        try {
+            const total = validUrls.length;
+
+            for (let i = 0; i < total; i++) {
+                const url = validUrls[i];
+                // Update progress based on current video index
+                setProgress(10 + ((i / total) * 80));
+
+                try {
+                    const data = await scrape({ youtubeUrl: url, limit });
+
+                    if (data?.comments) {
+                        // Add source URL if measuring multiple videos
+                        const commentsWithSource = data.comments.map((c: any) => ({
+                            ...c,
+                            ...(total > 1 ? { video_source: url } : {})
+                        }));
+
+                        accumulatedComments = [...accumulatedComments, ...commentsWithSource];
+
+                        // If it's the first video, use its meta as base, or keep it generic
+                        if (i === 0 && total === 1) {
+                            accumulatedMeta = data.meta;
+                        } else if (i === 0) {
+                            // For multi video, maybe just use first thumbnail
+                            accumulatedMeta.thumbnail = data.meta.thumbnail;
+                        }
+                    }
+                } catch (err: any) {
+                    console.error(`Failed to scrape ${url}`, err);
+                    // Decide if we want to stop or continue. Let's continue but note error?
+                    // For now, if one fails, we might just keep going.
+                }
+            }
+
+            setProgress(100);
+            setResults({
+                meta: {
+                    ...accumulatedMeta,
+                    title: total > 1 ? `Multi-Video Export (${total} videos)` : accumulatedMeta.title,
+                    total_comments: accumulatedComments.length
+                },
+                comments: accumulatedComments
+            });
+
+        } catch (err: any) {
+            setBatchError(err.message || "An error occurred during batch scraping.");
+        } finally {
+            setIsScrapingBatch(false);
         }
     };
 
+    const handleScrape = async () => {
+        // PIN Check
+        if (ENABLE_PIN_PROTECTION && !isUnlocked) {
+            setIsPinDialogOpen(true);
+            return;
+        }
+        await executeBatchScrape();
+    };
+
     const handlePinSubmit = () => {
-        // Simple sanitization: trim whitespace.
-        // SQL Injection is NOT possible here because:
-        // 1. This is running on the client-side (browser).
-        // 2. We are not using a database (SQL).
-        // 3. We use strict equality check (===) which prevents injection logic.
         const cleanInput = pinInput.trim();
 
         if (cleanInput === ACCESS_PIN) {
             setIsUnlocked(true);
             setIsPinDialogOpen(false);
             setPinError("");
-            scrape({ youtubeUrl: url, limit });
+            // Auto start scraping after unlock
+            executeBatchScrape();
         } else {
             setPinError("Incorrect PIN Code.");
-            setPinInput(""); // Clear input on error
+            setPinInput("");
         }
     };
 
     const handleDownload = () => {
-        if (data?.comments) {
-            const filename = `${data.meta.title || "comments"}_scraped.csv`.replace(/[^a-z0-9]/gi, '_').toLowerCase();
-            downloadCSV(data.comments, filename);
+        if (results?.comments) {
+            const filename = `${results.meta.title || "comments"}_scraped.csv`.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+            downloadCSV(results.comments, filename);
         }
+    };
+
+    // Helper to manage URL Inputs
+    const addUrlInput = () => {
+        setUrls([...urls, ""]);
+    };
+
+    const removeUrlInput = (index: number) => {
+        const newUrls = [...urls];
+        newUrls.splice(index, 1);
+        setUrls(newUrls);
+    };
+
+    const updateUrlInput = (index: number, value: string) => {
+        const newUrls = [...urls];
+        newUrls[index] = value;
+        setUrls(newUrls);
     };
 
     return (
@@ -134,7 +219,7 @@ export default function Home() {
                 <Card className="w-full max-w-xl shadow-lg border-0 ring-1 ring-slate-200 dark:ring-slate-800">
                     <CardHeader>
                         <CardTitle>Scrape Configuration</CardTitle>
-                        <CardDescription>Enter a video link and choose how many comments to fetch.</CardDescription>
+                        <CardDescription>Enter video links and choose how many comments to fetch per video.</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-6">
 
@@ -150,21 +235,48 @@ export default function Home() {
 
                         <div className="space-y-2">
                             <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                                YouTube Link
+                                YouTube Links
                             </label>
-                            <div className="flex gap-2">
-                                <Input
-                                    placeholder="https://www.youtube.com/watch?v=..."
-                                    value={url}
-                                    onChange={(e) => setUrl(e.target.value)}
-                                    className="flex-1"
-                                />
+
+                            <div className="space-y-2">
+                                {urls.map((url, index) => (
+                                    <div key={index} className="flex gap-2">
+                                        <Input
+                                            placeholder="https://www.youtube.com/watch?v=..."
+                                            value={url}
+                                            onChange={(e) => updateUrlInput(index, e.target.value)}
+                                            className="flex-1"
+                                        />
+                                        {urls.length > 1 && (
+                                            <Button
+                                                variant="outline"
+                                                size="icon"
+                                                onClick={() => removeUrlInput(index)}
+                                                tabIndex={-1}
+                                                className="shrink-0 text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20"
+                                            >
+                                                <Trash2 className="h-4 w-4" />
+                                            </Button>
+                                        )}
+                                    </div>
+                                ))}
                             </div>
+
+                            <Button
+                                type="button"
+                                variant="outline"
+                                size="sm"
+                                onClick={addUrlInput}
+                                className="w-full mt-2 border-dashed"
+                            >
+                                <Plus className="h-3 w-3 mr-2" />
+                                Add Another Video
+                            </Button>
                         </div>
 
                         <div className="space-y-4">
                             <div className="flex justify-between">
-                                <label className="text-sm font-medium">Max Comments</label>
+                                <label className="text-sm font-medium">Max Comments (per video)</label>
                                 <span className="text-sm text-slate-500 font-mono">{limit}</span>
                             </div>
                             <Slider
@@ -177,22 +289,22 @@ export default function Home() {
                             <p className="text-xs text-slate-500 text-right">Max 2000 for stateless mode</p>
                         </div>
 
-                        {isPending && (
+                        {isLoading && (
                             <div className="space-y-2">
                                 <Progress value={progress} className="h-2 w-full" />
                                 <p className="text-xs text-center text-slate-500 animate-pulse">
-                                    Extracting comments... {Math.round(progress)}%
+                                    Processing videos... {Math.round(progress)}%
                                 </p>
                             </div>
                         )}
 
                         <Button
                             onClick={handleScrape}
-                            disabled={!apiKey || !url || isPending}
+                            disabled={!apiKey || urls.every(u => !u.trim()) || isLoading}
                             className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white shadow-md transition-all"
                             size="lg"
                         >
-                            {isPending ? (
+                            {isLoading ? (
                                 <>
                                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                                     Processing...
@@ -204,10 +316,10 @@ export default function Home() {
                             )}
                         </Button>
 
-                        {error && (
+                        {batchError && (
                             <div className="flex items-center gap-2 text-sm text-red-600 bg-red-50 dark:bg-red-950/30 p-3 rounded-md">
                                 <AlertCircle className="h-4 w-4" />
-                                <span>{error.message}</span>
+                                <span>{batchError}</span>
                             </div>
                         )}
                     </CardContent>
@@ -215,7 +327,7 @@ export default function Home() {
 
                 {/* Results Section */}
                 <AnimatePresence>
-                    {data && (
+                    {results && (
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -229,10 +341,10 @@ export default function Home() {
                                         <CardTitle className="text-sm font-medium text-muted-foreground">Video Summary</CardTitle>
                                     </CardHeader>
                                     <CardContent className="space-y-3">
-                                        {data.meta.thumbnail && (
+                                        {results.meta.thumbnail && (
                                             <div className="relative aspect-video rounded-md overflow-hidden bg-slate-100">
                                                 <Image
-                                                    src={data.meta.thumbnail}
+                                                    src={results.meta.thumbnail}
                                                     alt="Thumbnail"
                                                     fill
                                                     className="object-cover"
@@ -240,8 +352,8 @@ export default function Home() {
                                             </div>
                                         )}
                                         <div>
-                                            <h3 className="font-semibold text-sm line-clamp-2" title={data.meta.title}>{data.meta.title}</h3>
-                                            <p className="text-xs text-slate-500">{data.meta.channel}</p>
+                                            <h3 className="font-semibold text-sm line-clamp-2" title={results.meta.title}>{results.meta.title}</h3>
+                                            <p className="text-xs text-slate-500">{results.meta.channel}</p>
                                         </div>
                                     </CardContent>
                                 </Card>
@@ -255,14 +367,14 @@ export default function Home() {
                                         <div className="space-y-1">
                                             <div className="flex items-center gap-2 text-2xl font-bold">
                                                 <MessageSquare className="text-blue-500 h-6 w-6" />
-                                                {data.comments.length}
+                                                {results.comments.length}
                                             </div>
                                             <p className="text-xs text-muted-foreground">Comments Retrieved</p>
                                         </div>
                                         <div className="space-y-1">
                                             <div className="flex items-center gap-2 text-2xl font-bold">
                                                 <ThumbsUp className="text-green-500 h-6 w-6" />
-                                                {data.comments.reduce((acc: number, curr: any) => acc + (Number(curr.like_count) || 0), 0)}
+                                                {results.comments.reduce((acc: number, curr: any) => acc + (Number(curr.like_count) || 0), 0)}
                                             </div>
                                             <p className="text-xs text-muted-foreground">Total Likes (Sample)</p>
                                         </div>
@@ -280,7 +392,7 @@ export default function Home() {
                             <Card className="border-0 shadow-md overflow-hidden">
                                 <CardHeader>
                                     <CardTitle>Preview Data</CardTitle>
-                                    <CardDescription>Showing first 5 rows of {data.comments.length}</CardDescription>
+                                    <CardDescription>Showing first 5 rows of {results.comments.length}</CardDescription>
                                 </CardHeader>
                                 <div className="overflow-x-auto">
                                     <Table>
@@ -293,7 +405,7 @@ export default function Home() {
                                             </TableRow>
                                         </TableHeader>
                                         <TableBody>
-                                            {data.comments.slice(0, 5).map((comment: any, idx: number) => (
+                                            {results.comments.slice(0, 5).map((comment: any, idx: number) => (
                                                 <TableRow key={idx}>
                                                     <TableCell className="font-medium truncate max-w-[150px]">{comment.author_name}</TableCell>
                                                     <TableCell className="max-w-[300px] truncate" title={comment.text_display}>{comment.text_display}</TableCell>

@@ -259,6 +259,13 @@ async function POST(req) {
                 }
             } catch (err) {
                 console.error("YouTube API Error:", err);
+                // Specific handling for disabled comments (often returns 403 with reason 'processingFailure' or similar for this endpoint)
+                // The error message for disabled comments is usually: "The video identified by the <videoId> parameter has disabled comments."
+                const isCommentsDisabled = err.message?.includes("disabled comments") || err.errors?.[0]?.reason === 'processingFailure';
+                if (isCommentsDisabled) {
+                    console.log("Comments are disabled for this video. Returning valid empty list.");
+                    break;
+                }
                 // If it's a quota or auth error, stop and return what we have or error
                 if (err.code === 403 || err.code === 400) {
                     throw err; // Propagate to outer catch

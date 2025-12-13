@@ -1,66 +1,110 @@
-[00:00:00.960] Server  LOG      ✓ Ready in 603ms
-[00:00:06.481] Server  LOG      ○ Compiling / ...
-[00:00:07.290] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:22.171] Server  LOG      ○ Compiling /api/scrape ...
-[00:00:31.494] Browser WARN    Image with src "https://i.ytimg.com/vi/PC3KLjRgRbM/hqdefault.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:01:26.719] Server  LOG      ✓ Compiled in 40ms
-[00:02:42.097] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:59.403] Browser WARN    Image with src "https://i.ytimg.com/vi/PC3KLjRgRbM/hqdefault.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[00:07:08.952] Server  LOG      ✓ Compiled in 70ms
-[01:29:36.042] Server  LOG      ✓ Compiled in 147ms
-[01:29:36.311] Browser ERROR   uncaughtError: ReferenceError: Dialog is not defined
-[01:29:45.376] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[01:29:45.607] Server  LOG      ✓ Compiled in 99ms
-[01:29:45.737] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:31:23.186] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:31:46.955] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:33:19.863] Browser WARN    Image with src "https://i.ytimg.com/vi/Ss6ud71pmvQ/hqdefault.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
-[01:35:43.357] Server  LOG      ✓ Compiled in 57ms
-[01:35:43.722] Server  LOG      ✓ Compiled in 91ms
-[01:35:44.306] Browser ERROR   ./app/page.tsx:89:39
-Parsing ecmascript source code failed
-  87 |                             </div>
-  88 |                         </div>
-> 89 |                         <DialogFooter className="flex-col sm:justify-between items-start sm:items-center gap-2 sm:gap-0">
-     |                                       ^^^^^^^^^
-  90 |                              <a 
-  91 |                                 href="#" 
-  92 |                                 className="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline bg-blue-50 dark:bg-blue-900/20 px-3 py-2 rounded-md transition-colors w-full text-center sm:w-auto"
-
-Expected ';', '}' or <eof>
-
-Import traces:
-  Client Component Browser:
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-[01:35:44.306] Browser ERROR   ./app/page.tsx:89:39
-Parsing ecmascript source code failed
-  87 |                             </div>
-  88 |                         </div>
-> 89 |                         <DialogFooter className="flex-col sm:justify-between items-start sm:items-center gap-2 sm:gap-0">
-     |                                       ^^^^^^^^^
-  90 |                              <a 
-  91 |                                 href="#" 
-  92 |                                 className="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline bg-blue-50 dark:bg-blue-900/20 px-3 py-2 rounded-md transition-colors w-full text-center sm:w-auto"
-
-Expected ';', '}' or <eof>
-
-Import traces:
-  Client Component Browser:
-    ./app/page.tsx [Client Component Browser]
-    ./app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./app/page.tsx [Client Component SSR]
-    ./app/page.tsx [Server Component]
-[01:36:20.312] Browser ERROR   uncaughtError: ReferenceError: AnimatePresence is not defined
-[01:36:20.312] Browser ERROR   uncaughtError: ReferenceError: AnimatePresence is not defined
-[01:36:58.864] Server  LOG      ✓ Compiled in 190ms
-[01:36:58.975] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[01:36:59.103] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:36:59.182] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:39:06.661] Browser WARN    Image with src "https://i.ytimg.com/vi/Ss6ud71pmvQ/hqdefault.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:00:03.114] Server  LOG      ✓ Ready in 2.1s
+[00:01:54.442] Server  LOG      ○ Compiling / ...
+[00:01:58.955] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:07:32.867] Server  LOG      ✓ Compiled in 290ms
+[00:08:33.577] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:47.413] Server  LOG      ○ Compiling /api/scrape ...
+[00:09:51.736] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\node_modules_03a126ab._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.741] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\[root-of-the-server]__0a2d2c04._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.771] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.799] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\node_modules_next_17dd7870._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.804] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.807] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.809] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.811] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.813] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.815] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.821] Server  ERROR   YouTube API Error: Error: The video identified by the <code><a href="/youtube/v3/docs/commentThreads/list#videoId">videoId</a></code> parameter has disabled comments.
+[00:09:51.822] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\node_modules_03a126ab._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.823] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\[root-of-the-server]__0a2d2c04._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.825] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.826] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\node_modules_next_17dd7870._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.827] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.829] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.829] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.830] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.831] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.832] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:09:51.833] Server  ERROR   Scrape Error: Error: The video identified by the <code><a href="/youtube/v3/docs/commentThreads/list#videoId">videoId</a></code> parameter has disabled comments.
+[00:09:52.742] Browser ERROR   Failed to scrape https://www.youtube.com/live/iLkcT_6f3Oo?si=wXbnKXmFbk69bWhu {}
+[00:11:34.000] Server  LOG      ✓ Compiled in 110ms
+[00:12:22.832] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\node_modules_03a126ab._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.833] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\[root-of-the-server]__0a2d2c04._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.837] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.838] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\node_modules_next_17dd7870._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.839] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.840] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.841] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.844] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.845] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.846] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.847] Server  ERROR   YouTube API Error: Error: The video identified by the <code><a href="/youtube/v3/docs/commentThreads/list#videoId">videoId</a></code> parameter has disabled comments.
+[00:12:22.849] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\node_modules_03a126ab._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.850] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\[root-of-the-server]__0a2d2c04._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.852] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.853] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\node_modules_next_17dd7870._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.854] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.855] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.856] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.856] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.857] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.858] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:12:22.860] Server  ERROR   Scrape Error: Error: The video identified by the <code><a href="/youtube/v3/docs/commentThreads/list#videoId">videoId</a></code> parameter has disabled comments.
+[00:12:22.981] Browser ERROR   Failed to scrape https://www.youtube.com/live/iLkcT_6f3Oo?si=wXbnKXmFbk69bWhu {}
+[00:12:41.253] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:03.520] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\node_modules_03a126ab._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.521] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\[root-of-the-server]__0a2d2c04._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.522] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.523] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\node_modules_next_17dd7870._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.524] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.526] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.528] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.529] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.530] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.530] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.531] Server  ERROR   YouTube API Error: Error: The video identified by the <code><a href="/youtube/v3/docs/commentThreads/list#videoId">videoId</a></code> parameter has disabled comments.
+[00:14:03.532] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\node_modules_03a126ab._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.533] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\[root-of-the-server]__0a2d2c04._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.535] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.535] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\node_modules_next_17dd7870._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.537] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.537] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.539] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.539] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.540] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.541] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:14:03.543] Server  ERROR   Scrape Error: Error: The video identified by the <code><a href="/youtube/v3/docs/commentThreads/list#videoId">videoId</a></code> parameter has disabled comments.
+[00:14:03.661] Browser ERROR   Failed to scrape https://www.youtube.com/live/iLkcT_6f3Oo?si=R6_pvHdAL7CZowK6 {}
+[00:15:13.042] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:15:31.079] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\node_modules_03a126ab._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:15:31.081] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\[root-of-the-server]__0a2d2c04._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:15:31.082] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\compiled\next-server\app-route-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:15:31.107] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\.next\dev\server\chunks\node_modules_next_17dd7870._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:15:31.108] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:15:31.110] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:15:31.111] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:15:31.111] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:15:31.112] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:15:31.113] Server  ERROR   D:\Dokumen\Anti Gravity\Scrapping_YT_Website\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:15:31.114] Server  ERROR   YouTube API Error: Error: The video identified by the <code><a href="/youtube/v3/docs/commentThreads/list#videoId">videoId</a></code> parameter has disabled comments.
+[00:15:31.115] Server  LOG     Comments are disabled for this video. Returning valid empty list.
+[00:15:32.439] Browser WARN    Image with src "https://i.ytimg.com/vi/73tpsJeIsHU/hqdefault.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:16:08.466] Browser WARN    Image with src "https://i.ytimg.com/vi/yIPX-FNJ9qk/hqdefault.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[00:17:24.157] Server  LOG      ✓ Compiled in 118ms
+[00:19:30.066] Server  LOG      ✓ Compiled in 102ms
+[00:19:37.678] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:39.031] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:39.311] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:39.494] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:39.687] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:39.819] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:40.139] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:40.404] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:40.755] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:41.050] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:41.351] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:41.552] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:41.724] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:42.366] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:19:44.199] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:20:32.548] Server  LOG      ✓ Compiled in 107ms

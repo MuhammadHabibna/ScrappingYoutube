@@ -617,6 +617,10 @@
     height: calc(var(--spacing) * 2);
   }
 
+  .h-3 {
+    height: calc(var(--spacing) * 3);
+  }
+
   .h-4 {
     height: calc(var(--spacing) * 4);
   }
@@ -655,6 +659,10 @@
 
   .w-2 {
     width: calc(var(--spacing) * 2);
+  }
+
+  .w-3 {
+    width: calc(var(--spacing) * 3);
   }
 
   .w-4 {
@@ -912,6 +920,11 @@
   .border-b {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
+  }
+
+  .border-dashed {
+    --tw-border-style: dashed;
+    border-style: dashed;
   }
 
   .border-amber-200 {
@@ -1510,6 +1523,12 @@
   }
 
   @media (hover: hover) {
+    .hover\:bg-red-50:hover {
+      background-color: var(--color-red-50);
+    }
+  }
+
+  @media (hover: hover) {
     .hover\:bg-secondary\/80:hover {
       background-color: var(--secondary);
     }
@@ -1554,14 +1573,14 @@
   }
 
   @media (hover: hover) {
-    .hover\:text-blue-500:hover {
-      color: var(--color-blue-500);
+    .hover\:text-blue-700:hover {
+      color: var(--color-blue-700);
     }
   }
 
   @media (hover: hover) {
-    .hover\:text-blue-700:hover {
-      color: var(--color-blue-700);
+    .hover\:text-red-600:hover {
+      color: var(--color-red-600);
     }
   }
 
@@ -1892,6 +1911,18 @@
 
   .dark\:ring-slate-800:is(.dark *) {
     --tw-ring-color: var(--color-slate-800);
+  }
+
+  @media (hover: hover) {
+    .dark\:hover\:bg-red-950\/20:is(.dark *):hover {
+      background-color: #46080933;
+    }
+
+    @supports (color: color-mix(in lab, red, red)) {
+      .dark\:hover\:bg-red-950\/20:is(.dark *):hover {
+        background-color: color-mix(in oklab, var(--color-red-950) 20%, transparent);
+      }
+    }
   }
 
   @media (hover: hover) {
