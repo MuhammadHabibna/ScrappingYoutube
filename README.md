@@ -36,7 +36,7 @@ Ikuti langkah-langkah ini untuk menjalankan project di komputer lokal:
 
 ### Langkah 1: Siapkan Folder Project
 1.  **Ekstrak (Unzip)** file `.zip` source code yang Anda terima.
-2.  Masuk ke dalam folder hasil ekstraksi tersebut.
+2.  Masuk ke dalam folder hasil ekstraksii tersebut.
 
 ### Langkah 2: Install Dependensi (Wajib)
 Jantung aplikasi ini ada di library pendukungnya. Kita perlu menginstalnya terlebih dahulu.
