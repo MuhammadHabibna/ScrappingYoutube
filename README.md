@@ -78,7 +78,7 @@ npm run start
 6.  Klik tombol **"Start Scraping"**.
 7.  Tunggu proses selesai, lalu klik **"Download .CSV"** untuk menyimpan data.
 
-...
+-----
 
 ## 📝 Lisensi
 
