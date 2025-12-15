@@ -1067,7 +1067,7 @@ function Home() {
     // Accumulated Data State
     const [results, setResults] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     // PIN Verification State
-    const ENABLE_PIN_PROTECTION = true; // TOGGLE: Set to false to disable PIN check
+    const ENABLE_PIN_PROTECTION = false; // TOGGLE: Set to false to disable PIN check
     const [isPinDialogOpen, setIsPinDialogOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [pinInput, setPinInput] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("");
     const [showPin, setShowPin] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false); // Toggle visibility
@@ -1155,10 +1155,8 @@ function Home() {
     };
     const handleScrape = async ()=>{
         // PIN Check
-        if (ENABLE_PIN_PROTECTION && !isUnlocked) {
-            setIsPinDialogOpen(true);
-            return;
-        }
+        if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+        ;
         await executeBatchScrape();
     };
     const handlePinSubmit = ()=>{

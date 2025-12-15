@@ -21,7 +21,7 @@ import {
     DialogFooter,
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
-import { Download, Youtube, Loader2, MessageSquare, ThumbsUp, AlertCircle, AlertTriangle, Eye, EyeOff, Plus, Trash2 } from "lucide-react";
+import { Download, Youtube, Loader2, MessageSquare, ThumbsUp, AlertCircle, AlertTriangle, Eye, EyeOff, Plus, Trash2, Github } from "lucide-react";
 
 // ... (existing code)
 
@@ -47,7 +47,7 @@ export default function Home() {
 
 
     // PIN Verification State
-    const ENABLE_PIN_PROTECTION = true; // TOGGLE: Set to false to disable PIN check
+    const ENABLE_PIN_PROTECTION = false; // TOGGLE: Set to false to disable PIN check
     const [isPinDialogOpen, setIsPinDialogOpen] = useState(false);
     const [pinInput, setPinInput] = useState("");
     const [showPin, setShowPin] = useState(false); // Toggle visibility
@@ -478,6 +478,45 @@ export default function Home() {
                 </Dialog>
 
             </main>
+
+            {/* Footer */}
+            <footer className="w-full border-t border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm py-6 mt-auto">
+                <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500 dark:text-slate-400">
+                    <div className="flex items-center gap-1">
+                        <span>&copy; {new Date().getFullYear()} Copyright by</span>
+                        <span className="font-semibold text-slate-700 dark:text-slate-200">@muhammadhabibna</span>
+                    </div>
+
+                    <div className="flex items-center gap-6">
+                        <a
+                            href="https://github.com/MuhammadHabibna"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+                        >
+                            <Github className="h-4 w-4" />
+                            <span>GitHub</span>
+                        </a>
+                        <a
+                            href="https://www.tiktok.com/@muhammadhabibna"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+                        >
+                            {/* Custom TikTok Icon SVG */}
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="currentColor"
+                                className="h-4 w-4"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                            </svg>
+                            <span>TikTok</span>
+                        </a>
+                    </div>
+                </div>
+            </footer>
         </div>
     );
 }
