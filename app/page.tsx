@@ -47,7 +47,7 @@ export default function Home() {
 
 
     // PIN Verification State
-    const ENABLE_PIN_PROTECTION = false; // TOGGLE: Set to false to disable PIN check
+    const ENABLE_PIN_PROTECTION = true; // TOGGLE: Set to false to disable PIN check
     const [isPinDialogOpen, setIsPinDialogOpen] = useState(false);
     const [pinInput, setPinInput] = useState("");
     const [showPin, setShowPin] = useState(false); // Toggle visibility
